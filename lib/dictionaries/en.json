@@ -1,0 +1,66 @@
+{
+  "navigation": {
+    "menus": {
+      "edges": [
+        {
+          "node": {
+            "id": "dGVybToyNw==",
+            "name": "Menu 1",
+            "menuItems": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "cG9zdDoxMTA=",
+                    "label": "Homepage",
+                    "url": "https://localhost/",
+                    "parentId": null,
+                    "order": 1
+                  }
+                },
+                {
+                  "node": {
+                    "id": "cG9zdDoxNDI=",
+                    "label": "About us",
+                    "url": "https://localhost/about-us/",
+                    "parentId": null,
+                    "order": 2
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "homepage": {
+    "page": {
+      "title": "Homepage",
+      "slug": "homepage",
+      "homepageContent": {
+        "mainTitle": "Welcome to Natural Beauty",
+        "descriptionText": "Discover the power of organic cosmetics that nourish your skin and respect the earth."
+      },
+      "seo": {
+        "title": "Homepage - shop-natural",
+        "metaDesc": "",
+        "focuskw": ""
+      }
+    }
+  },
+  "about": {
+    "page": {
+      "title": "About us",
+      "slug": "about-us",
+      "apieMus": {
+        "aboutPageTitle": "Test",
+        "aboutPageDescription": "testatastsat111111"
+      },
+      "seo": {
+        "title": "About us - shop-natural",
+        "metaDesc": "Description12",
+        "focuskw": "testas123FK"
+      }
+    }
+  }
+}

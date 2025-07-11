@@ -1,0 +1,66 @@
+{
+  "navigation": {
+    "menus": {
+      "edges": [
+        {
+          "node": {
+            "id": "dGVybToyOA==",
+            "name": "Menu 1 LT",
+            "menuItems": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "cG9zdDoxMTc=",
+                    "label": "Pradžia",
+                    "url": "https://localhost/lt/",
+                    "parentId": null,
+                    "order": 1
+                  }
+                },
+                {
+                  "node": {
+                    "id": "cG9zdDoxNDM=",
+                    "label": "Apie mus",
+                    "url": "https://localhost/lt/apie-mus/",
+                    "parentId": null,
+                    "order": 2
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "homepage": {
+    "page": {
+      "title": "Pradžia",
+      "slug": "pradzia",
+      "homepageContent": {
+        "mainTitle": "Sveiki atvykę į \"Natural Beautyyyyyyy",
+        "descriptionText": "Atraskite ekologiškos kosmetikos, kuri puoselėja jūsų odą ir tausoja žemę, galią."
+      },
+      "seo": {
+        "title": "Pradžia - shop-natural",
+        "metaDesc": "",
+        "focuskw": ""
+      }
+    }
+  },
+  "about": {
+    "page": {
+      "title": "Apie mus",
+      "slug": "apie-mus",
+      "apieMus": {
+        "aboutPageTitle": "Testas",
+        "aboutPageDescription": "testatastsat111111"
+      },
+      "seo": {
+        "title": "Apie mus - shop-natural",
+        "metaDesc": "Aprašymas12",
+        "focuskw": "testas123FK"
+      }
+    }
+  }
+}
