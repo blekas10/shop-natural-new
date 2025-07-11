@@ -8,7 +8,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale as any);
+  const dict = await getDictionary(locale);
   return {
     title: dict.about.page.seo.title,
     description: dict.about.page.seo.metaDesc,
@@ -21,7 +21,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const dict = await getDictionary(locale as any);
+  const dict = await getDictionary(locale);
 
   return (
     <div

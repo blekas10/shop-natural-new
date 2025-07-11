@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const { PAGES, QUERIES } = require("../lib/queries.js");
+const { PAGES, QUERIES } = require("../src/lib/queries.js");
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
@@ -30,7 +30,7 @@ async function sync() {
     };
 
     await fs.writeFile(
-      `lib/dictionaries/${lang}.json`,
+      `src/lib/dictionaries/${lang}.json`,
       JSON.stringify(dictionary, null, 2)
     );
     console.log(`✅ ${lang}`);
