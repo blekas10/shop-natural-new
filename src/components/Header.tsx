@@ -13,12 +13,10 @@ interface HeaderProps {
 }
 
 export default function Header({ locale, navigationItems }: HeaderProps) {
-  // Convert WordPress URLs to local routes
-  const getLocalRoute = (url: string, label: string) => {
-    if (label.toLowerCase().includes('about') || label.toLowerCase().includes('apie')) {
-      return `/${locale}/about`;
-    }
-    return `/${locale}`;
+  // Convert WordPress URLs to local routes - extract path directly
+  const getLocalRoute = (wordpressUrl: string) => {
+    const url = new URL(wordpressUrl);
+    return url.pathname; // Extract just the path part
   };
 
   return (
@@ -27,8 +25,8 @@ export default function Header({ locale, navigationItems }: HeaderProps) {
         <div className="flex items-center justify-between h-20">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <Link 
-              href={`/${locale}`} 
+            <Link
+              href={`/${locale}`}
               className="flex items-center gap-2 text-natural-green-600 hover:text-natural-green-700 transition-all duration-200 hover:-translate-y-0.5"
             >
               <span className="text-2xl drop-shadow-sm">🌿</span>
@@ -43,7 +41,7 @@ export default function Header({ locale, navigationItems }: HeaderProps) {
               .map((item) => (
                 <Link
                   key={item.url}
-                  href={getLocalRoute(item.url, item.label)}
+                  href={getLocalRoute(item.url)}
                   className="relative px-4 py-2 text-natural-gray-400 hover:text-natural-green-600 font-medium transition-all duration-300 rounded-lg hover:bg-natural-green-50 group"
                 >
                   {item.label}
@@ -60,8 +58,18 @@ export default function Header({ locale, navigationItems }: HeaderProps) {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button className="p-2 rounded-lg hover:bg-natural-green-50 transition-colors">
-              <svg className="w-6 h-6 text-natural-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-6 h-6 text-natural-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
@@ -75,7 +83,7 @@ export default function Header({ locale, navigationItems }: HeaderProps) {
               .map((item) => (
                 <Link
                   key={item.url}
-                  href={getLocalRoute(item.url, item.label)}
+                  href={getLocalRoute(item.url)}
                   className="px-3 py-2 text-natural-gray-400 hover:text-natural-green-600 font-medium transition-colors rounded-lg hover:bg-natural-green-50"
                 >
                   {item.label}
