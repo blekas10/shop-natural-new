@@ -7,40 +7,38 @@ interface LanguageSwitcherProps {
   currentLocale: string;
 }
 
-export default function LanguageSwitcher({
-  currentLocale,
-}: LanguageSwitcherProps) {
-  const pathname = usePathname();
+const languages = [
+  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "lt", name: "Lietuvių", flag: "🇱🇹" },
+];
 
+export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
+  const pathname = usePathname();
+  
   // Remove current locale from pathname to get base path
   const basePath = pathname.replace(`/${currentLocale}`, "") || "/";
 
-  const languages = [
-    { code: "en", name: "English" },
-    { code: "lt", name: "Lietuvių" },
-  ];
-
   return (
-    <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-      <span style={{ fontSize: "0.875rem", color: "#666" }}>Language:</span>
-      {languages.map((lang) => (
-        <Link
-          key={lang.code}
-          href={`/${lang.code}${basePath}`}
-          style={{
-            padding: "0.5rem 1rem",
-            textDecoration: "none",
-            borderRadius: "4px",
-            fontSize: "0.875rem",
-            backgroundColor:
-              currentLocale === lang.code ? "#0070f3" : "#f5f5f5",
-            color: currentLocale === lang.code ? "white" : "#333",
-            border: currentLocale === lang.code ? "none" : "1px solid #ddd",
-          }}
-        >
-          {lang.name}
-        </Link>
-      ))}
+    <div className="flex items-center gap-2">
+      <span className="text-sm text-natural-gray-600 hidden sm:inline">Language:</span>
+      <div className="flex items-center gap-1">
+        {languages.map((lang) => (
+          <Link
+            key={lang.code}
+            href={`/${lang.code}${basePath}`}
+            className={`
+              flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200
+              ${currentLocale === lang.code
+                ? 'bg-natural-green-500 text-white shadow-lg'
+                : 'bg-natural-green-50 text-natural-gray-400 hover:bg-natural-green-100 hover:text-natural-green-600'
+              }
+            `}
+          >
+            <span className="text-xs">{lang.flag}</span>
+            <span className="hidden sm:inline">{lang.code.toUpperCase()}</span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+  import { NextRequest, NextResponse } from "next/server";
 
 const locales = ["en", "lt"];
 const defaultLocale = "en";
@@ -11,7 +11,11 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/api/") ||
     pathname === "/favicon.ico" ||
-    pathname.includes(".")
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname.startsWith("/images/") ||
+    pathname.startsWith("/icons/") ||
+    pathname.includes(".") // Skip all files with extensions
   ) {
     return;
   }
@@ -30,6 +34,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next).*)",
+    // Match all paths except _next, api, favicon.ico and files with extensions
+    "/((?!_next|api|favicon.ico|.*\\..*).*)",
   ],
 };

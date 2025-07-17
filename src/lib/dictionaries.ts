@@ -12,3 +12,11 @@ export const getDictionary = async (locale: string) => {
   }
   return dict();
 };
+
+export const isValidLocale = (locale: string): boolean => {
+  return locale in dictionaries;
+};
+
+export const getDefaultLocale = (): string => {
+  return "en";
+};
